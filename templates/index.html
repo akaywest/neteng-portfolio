@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Network Engineer Portfolio</title>
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f9;
+            color: #1e2b3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0a192f;
+            margin-bottom: 0.3rem;
+        }
+        .subhead {
+            font-size: 1.2rem;
+            color: #3a5a7a;
+            border-left: 5px solid #2b7a78;
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+        .section {
+            margin: 2.5rem 0;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #0a192f;
+            border-bottom: 3px solid #2b7a78;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: #e7edf4;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0.2rem 0.3rem;
+            color: #0a192f;
+        }
+        .project-card {
+            background: #f8fafc;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2b7a78;
+            transition: 0.2s;
+        }
+        .project-card:hover {
+            background: #eef3f8;
+            transform: translateX(4px);
+        }
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0a192f;
+        }
+        .project-card p {
+            color: #3a5a7a;
+            margin: 0.3rem 0 0.2rem;
+        }
+        .project-card .tech {
+            font-size: 0.85rem;
+            color: #2b7a78;
+            font-weight: 500;
+        }
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dce4ec;
+            text-align: center;
+            color: #6a7f94;
+            font-size: 0.95rem;
+        }
+        .footer a {
+            color: #2b7a78;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        /* responsive */
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <h1>Meet Akinola kayode</h1>
+    <div class="subhead">
+        Network Engineer &amp; Automation Enthusiast
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section">
+        <div class="section-title">About Me</div>
+        <p>
+            {{ about | default("Passionate about designing, implementing, and securing
+            modern network infrastructures. I combine strong fundamentals in routing &amp; switching
+            with automation skills (Python, Ansible, Netmiko) to build reliable and scalable solutions.") }}
+        </p>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div>
+            <span class="skill-tag">Cisco (IOS/NX-OS)</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">Netmiko</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Linux (Ubuntu)</span>
+            <span class="skill-tag">Wireshark</span>
+            <span class="skill-tag">BGP/OSPF/EIGRP</span>
+        </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section">
+        <div class="section-title">Featured Projects</div>
+
+        <!-- Example static project – you can loop with Flask -->
+        <div class="project-card">
+            <h3>Network Automation Toolkit</h3>
+            <p>Python scripts to automate device backups, config audits, and BGP peer monitoring via Netmiko.</p>
+            <span class="tech">Python · Netmiko · Jinja2</span>
+        </div>
+
+        <div class="project-card">
+            <h3>Flask Portfolio Dashboard</h3>
+            <p>This very site – built with Flask, served with Gunicorn, and deployed on a Raspberry Pi lab.</p>
+            <span class="tech">Flask · HTML/CSS · Gunicorn</span>
+        </div>
+
+        <div class="project-card">
+            <h3>SD-WAN Lab (Cisco vManage)</h3>
+            <p>Deployed a full SD-WAN fabric in EVE-NG with policies, templates, and real-time monitoring.</p>
+            <span class="tech">SD-WAN · EVE-NG · vManage</span>
+        </div>
+
+        <!-- If you want to loop over a list from Flask, use:
+        {% for project in projects %}
+            <div class="project-card">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.desc }}</p>
+                <span class="tech">{{ project.tech }}</span>
+            </div>
+        {% endfor %}
+        -->
+    </div>
+
+    <!-- CONTACT / FOOTER -->
+    <div class="footer">
+        <p>📧 <a href="mailto:you@example.com">you@example.com</a> &nbsp;·&nbsp; 
+        <a href="#">GitHub</a> &nbsp;·&nbsp; 
+        <a href="#">LinkedIn</a></p>
+        <p style="margin-top:0.5rem;">&copy; 2026 {{ name | default('John Doe') }}</p>
+    </div>
+
+</div>
+</body>
+</html>
